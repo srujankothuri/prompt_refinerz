@@ -14,7 +14,7 @@ from models import LLMProvider, PromptVariation
 load_dotenv()
 
 # API Keys
-GEMINI_API_KEY = "AIzaSyCNEWH98mW_gTa7N1mfz8uIZezuQdpvgkg"  # Hardcoded for now; consider moving to .env
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
