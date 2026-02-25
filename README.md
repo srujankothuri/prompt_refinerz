@@ -208,6 +208,7 @@ This avoids broken deployments caused by routing `/` to a non-existent `static/i
 
 ## Deployment
 
+A `vercel.json` configuration is included for deployment routing and serverless Python function settings.
 A `package.json` with deployment routing is included for platform workflows.
 
 For production hardening, consider:
