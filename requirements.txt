@@ -5,5 +5,5 @@ pydantic
 httpx
 openai
 google-generativeai
-asyncio
 anthropic
+jinja2

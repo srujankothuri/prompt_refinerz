@@ -182,6 +182,30 @@ Fallback behavior:
 
 ---
 
+
+## Vercel Deployment
+
+This project deploys on Vercel using the Python runtime with `main.py` as the single server entrypoint.
+
+### Required settings
+
+- Set the following environment variables in Vercel Project Settings:
+  - `ANTHROPIC_API_KEY`
+  - `TOGETHER_API_KEY`
+  - `GEMINI_API_KEY`
+- Ensure build output uses the repository root where `main.py`, `templates/`, and `static/` are present.
+
+### Why this works
+
+All routes are now forwarded to `main.py`, so FastAPI handles:
+- `GET /` (Jinja template rendering)
+- `/static/*` (mounted static files)
+- `/api/*` endpoints
+
+This avoids broken deployments caused by routing `/` to a non-existent `static/index.html`.
+
+---
+
 ## Deployment
 
 A `package.json` with deployment routing is included for platform workflows.
