@@ -1,23 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "main.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "static/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "main.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "static/index.html"
-    }
-  ]
+  "name": "prompt-refinerz",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Prompt Refiner web app",
+  "scripts": {
+    "start": "python main.py"
+  }
 }
