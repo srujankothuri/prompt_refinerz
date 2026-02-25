@@ -197,7 +197,7 @@ This project deploys on Vercel using the Python runtime with `main.py` as the si
 
 ### Why this works
 
-Vercel routes are forwarded to `main.py`, and `vercel.json` explicitly includes `templates/` and `static/` files in the serverless bundle so FastAPI can render and serve assets correctly. FastAPI then handles:
+All routes are now forwarded to `main.py`, so FastAPI handles:
 - `GET /` (Jinja template rendering)
 - `/static/*` (mounted static files)
 - `/api/*` endpoints
@@ -209,6 +209,7 @@ This avoids broken deployments caused by routing `/` to a non-existent `static/i
 ## Deployment
 
 A `vercel.json` configuration is included for deployment routing and serverless Python function settings.
+A `package.json` with deployment routing is included for platform workflows.
 
 For production hardening, consider:
 - Adding request rate limiting.
