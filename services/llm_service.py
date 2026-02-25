@@ -176,8 +176,8 @@ class LLMService:
             elif provider == LLMProvider.GEMINI:
                 if not GEMINI_API_KEY:
                     raise ValueError("Gemini API key is missing")
-                model = genai.GenerativeModel('gemini-1.5-flash')
-                print(f"Using Gemini model: gemini-1.5-flash with API Key: {GEMINI_API_KEY[:5]}...")
+                model = genai.GenerativeModel('gemini-2.0-flash')
+                print(f"Using Gemini model: gemini-2.0-flash with API Key: {GEMINI_API_KEY[:5]}...")
                 response = await asyncio.to_thread(
                     model.generate_content,
                     f"{system_prompt}\n\nOriginal prompt: {original_prompt}"
@@ -196,8 +196,8 @@ class LLMService:
 # Synchronous test function for Gemini
 def test_gemini_sync():
     """Test Gemini synchronously to isolate the issue."""
-    print(f"Testing Gemini synchronously with model: gemini-1.5-flash, API Key: {GEMINI_API_KEY[:5]}...")
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    print(f"Testing Gemini synchronously with model: gemini-2.0-flash, API Key: {GEMINI_API_KEY[:5]}...")
+    model = genai.GenerativeModel('gemini-2.0-flash')
     try:
         response = model.generate_content("Test prompt: Write a short story")
         print("Synchronous Gemini Test:", response.text)
